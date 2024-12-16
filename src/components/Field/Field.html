@@ -1,0 +1,11 @@
+<div class="weather-input">
+    <input
+            type="text"
+            v-model="cityName"
+            placeholder="Enter city name"
+            @keyup.enter="fetchWeather"
+    />
+    <div class="block-text">
+    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+    </div>
+</div>

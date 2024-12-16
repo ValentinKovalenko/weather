@@ -1,0 +1,33 @@
+<div class="today">
+    <header class="location">
+        <span>{{ location }}</span>
+    </header>
+    <div class="weather">
+        <h1 class="temperature">{{ temperature }}°C</h1>
+        <h2 class="status">{{ status }}</h2>
+        <img class="image" :src="iconUrl" :alt="status" />
+        <p class="description">{{ description }}</p>
+    </div>
+    <div class="details">
+        <div class="detail">
+            <h3>Feels Like</h3>
+            <p class="value">{{ feelsLike }}°</p>
+            <p>Humidity is making it feel warmer</p>
+        </div>
+        <div class="detail">
+            <h3>Wind speed</h3>
+            <p class="value">{{ speedWind }} m\s <span class="wind">{{windDirection}}</span></p>
+            <p v-if="gustsWind">Gusts of wind {{ gustsWind }} m\s</p>
+        </div>
+        <div class="detail">
+            <h3>Sunrise and sunset times</h3>
+            <p>Sunrise: {{ sunrise }}</p>
+            <p>Sunset: {{ sunset }}</p>
+        </div>
+        <div class="detail">
+            <h3>Humidity</h3>
+            <p class="value">{{ humidity }}%</p>
+            <p>Pressure {{ pressure }} mm</p>
+        </div>
+    </div>
+</div>

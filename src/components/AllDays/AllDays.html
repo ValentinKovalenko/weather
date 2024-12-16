@@ -1,0 +1,27 @@
+<div class="wrap">
+    <div v-if="forecastError" class="error">{{ forecastError }}</div>
+    <div v-if="forecastData">
+        <div class="day-block" v-for="(forecast, index) in forecastData" :key="index">
+            <div class="day-block-main">
+                <p>{{index + 1}}. <strong>Date:</strong> {{ forecast.date }}</p>
+                <p><strong>Status:</strong> {{ forecast.status }}</p>
+                <div class="wrap-image">
+                <img class="image-day" :src="`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`"
+                     alt="Weather icon"/>
+                </div>
+            </div>
+            <div class="wrap-day" v-for="(item, index) in forecast.dayWeather" :key="index">
+
+                    <div>
+                        <p>Time {{ dayjs().unix(item.dt).format("HH:hh") }}</p>
+                        <p>{{ item.main.temp }} °C</p>
+                        <div class="wrap-image">
+                        <img class="image-day" :src="`https://openweathermap.org/img/wn/${ item.weather[0].icon}@2x.png`"
+                             alt="Weather icon"/>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+.today {
+    z-index: 1;
+    width: 95%;
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(221, 215, 215, 0.3);
+}
+
+.location {
+    font-size: 1.2rem;
+}
+
+.weather {
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.temperature {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.status {
+    font-size: 1.5rem;
+    margin: 1% 0;
+}
+
+.description {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5%;
+    padding: 5% 5%;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.5522584033613445) 0%, rgba(240, 251, 254, 0.8939950980392157) 44%, rgba(232, 238, 255, 1) 100%);
+}
+
+.detail {
+    background-color: black;
+    opacity: 0.8;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.detail h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.wind {
+    font-size: 13px;
+}
+.image{
+    border-radius: 50%;
+    background-color: black;
+    width: 80px;
+    height: 80px;
+}
