@@ -19,48 +19,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.image {
-  width: 100%;
-  height: 100vh;
-  background-image: url("assets/blue-sky.jpg");
-  background-size: cover;
-  animation: color 20s linear infinite;
-}
-
-.rain {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: url("assets/rain-12.png");
-  animation: rain 2s linear infinite;
-}
-
-@keyframes rain {
-  100% {
-    background-position: 0 0;
-  }
-  0% {
-    background-position: 0 100%;
-  }
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.main {
-  padding: 0 20px;
-  background-color: rgba(15, 14, 14, 0.85);
-  width: 85%;
-  height: 85%;
-  border-radius: 30px;
-  overflow: auto;
-}
-</style>
+<style scoped src="./style.css"></style>
