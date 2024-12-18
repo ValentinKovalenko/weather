@@ -25,11 +25,11 @@ export default defineComponent({
             type: [Number, null] as PropType<number | null>,
             required: true,
         },
-        coordinatesLon:{
+        coordinatesLon: {
             type: Number,
             required: false,
         },
-        coordinatesLat:{
+        coordinatesLat: {
             type: Number,
             required: false,
         },
@@ -41,8 +41,9 @@ export default defineComponent({
     setup(props) {
         const forecastData = ref<Forecast[] | null>(null);
         const forecastError = ref<string | null>(null);
-        const userLatitude = ref<number | null>( props.coordinatesLat || null);
-        const userLongitude = ref<number | null>( props.coordinatesLon || null);
+        const userLatitude = ref<number | null>(props.coordinatesLat || null);
+        const userLongitude = ref<number | null>(props.coordinatesLon || null);
+        const activeDayIndex = ref(0);
 
 
         const fetchForecast = async () => {
@@ -53,7 +54,7 @@ export default defineComponent({
                 forecastError.value = "Missing coordinates.";
                 return;
             }
-             const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+            const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
             try {
                 const response = await axios.get(apiUrl);
                 const dailyForecasts = props.uniqueDates.map((date) => {
@@ -77,12 +78,14 @@ export default defineComponent({
             }
         };
 
+        const setActiveDay = (index: number) => activeDayIndex.value = index;
+
         watch(
             () => [props.latitude, props.longitude, props.uniqueDates],
             fetchForecast,
             {immediate: true}
         );
 
-        return {forecastData, forecastError};
+        return {forecastData, forecastError, activeDayIndex, setActiveDay};
     },
 });

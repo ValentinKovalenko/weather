@@ -1,30 +1,31 @@
 <div class="wrap">
     <div>
-    <Field @updateWeather="updateWeatherData"/>
-    <Today
-            v-if="weatherData"
-            v-bind="weatherData"
-            :location="weatherData.location"
-            :temperature="weatherData.temperature"
-            :feelsLike="weatherData.feelsLike"
-            :status="weatherData.status"
-            :description="weatherData.description"
-            :speedWind="weatherData.speedWind"
-            :gustsWind="weatherData.gustsWind"
-            :visibility="weatherData.visibility"
-            :humidity="weatherData.humidity"
-            :pressure="weatherData.pressure"
-            :windDirection="weatherData.windDirection"
-            :sunrise="weatherData.sunrise"
-            :icon="weatherData.icon"
-    />
+        <Field @updateWeather="updateWeatherData"/>
+        <Today
+                v-if="weatherData"
+                v-bind="weatherData"
+                :location="weatherData.location"
+                :temperature="weatherData.temperature"
+                :feelsLike="weatherData.feelsLike"
+                :status="weatherData.status"
+                :description="weatherData.description"
+                :speedWind="weatherData.speedWind"
+                :gustsWind="weatherData.gustsWind"
+                :visibility="weatherData.visibility"
+                :humidity="weatherData.humidity"
+                :pressure="weatherData.pressure"
+                :windDirection="weatherData.windDirection"
+                :sunrise="weatherData.sunrise"
+                :icon="weatherData.icon"
+        />
     </div>
     <AllDays
             v-if="latitude && longitude || coordinatesLat && coordinatesLon"
-               :latitude="latitude"
-               :longitude="longitude"
+            :latitude="latitude"
+            :longitude="longitude"
             :coordinatesLat="coordinatesLat"
             :coordinatesLon="coordinatesLon"
-               :uniqueDates="uniqueDates"/>
+            :uniqueDates="uniqueDates"
+    />
     <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
 </div>

@@ -1,26 +1,40 @@
-<div class="wrap">
+<div class="wrap-all">
     <div v-if="forecastError" class="error">{{ forecastError }}</div>
-    <div v-if="forecastData">
-        <div class="day-block" v-for="(forecast, index) in forecastData" :key="index">
-            <div class="day-block-main">
-                <p>{{index + 1}}. <strong>Date:</strong> {{ forecast.date }}</p>
-                <p><strong>Status:</strong> {{ forecast.status }}</p>
+    <div v-if="forecastData" class="days-container">
+        <!-- Головні блоки днів -->
+        <div
+                class="day-block"
+                v-for="(forecast, index) in forecastData"
+                :key="index"
+        >
+            <div
+                    class="day-block-main"
+                    @click="setActiveDay(index)"
+                    :class="{ active: activeDayIndex === index }"
+            >
+                <p><strong>{{ forecast.date }}</strong></p>
+                <p>{{ forecast.status }}</p>
                 <div class="wrap-image">
-                <img class="image-day" :src="`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`"
-                     alt="Weather icon"/>
+                    <img
+                            class="image-day"
+                            :src="`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`"
+                            alt="Weather icon"
+                    />
                 </div>
             </div>
-            <div class="wrap-day" v-for="(item, index) in forecast.dayWeather" :key="index">
-
-                    <div>
-                        <p>Time {{ dayjs().unix(item.dt).format("HH:hh") }}</p>
-                        <p>{{ item.main.temp }} °C</p>
-                        <div class="wrap-image">
-                        <img class="image-day" :src="`https://openweathermap.org/img/wn/${ item.weather[0].icon}@2x.png`"
-                             alt="Weather icon"/>
-                        </div>
-                    </div>
-
+            <div v-if="activeDayIndex === index" class="day-details">
+                <div
+                        v-for="(item, timeIndex) in forecast.dayWeather"
+                        :key="timeIndex"
+                >
+                    <!--                    <p>Time: {{ dayjs.unix(item.dt).format("HH:mm") }}</p>-->
+                    <p>Temp: {{ item.main.temp }} °C</p>
+                    <img
+                            class="image-day"
+                            :src="`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`"
+                            alt="Weather icon"
+                    />
+                </div>
             </div>
         </div>
     </div>
