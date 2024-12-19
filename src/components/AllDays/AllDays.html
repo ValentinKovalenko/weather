@@ -13,7 +13,7 @@
                     :class="{ active: activeDayIndex === index }"
             >
                 <p><strong>{{ forecast.date }}</strong></p>
-                <p>{{ forecast.status }}</p>
+                <p>{{ formatDay(forecast.date) }}</p>
                 <div class="wrap-image">
                     <img
                             class="image-day"
@@ -26,14 +26,26 @@
                 <div
                         v-for="(item, timeIndex) in forecast.dayWeather"
                         :key="timeIndex"
+                        class="time-block"
                 >
-                    <!--                    <p>Time: {{ dayjs.unix(item.dt).format("HH:mm") }}</p>-->
-                    <p>Temp: {{ item.main.temp }} °C</p>
+                    <p>Time</p>
+                    <p class="text-time-block">{{ formatTime(item.dt) }}</p>
                     <img
                             class="image-day"
-                            :src="`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`"
+                            :src="iconUrl(item.weather[0].icon)"
                             alt="Weather icon"
                     />
+                    <p>Temp: <span class="text-time-block">{{ formatTemp(item.main.temp) }} °C</span></p>
+                    <p>Feels like</p>
+                    <p class="text-time-block">{{ formatTemp(item.main.feels_like) }} °C</p>
+                    <p>Probability of precipitation</p>
+                    <p class="text-time-block">{{ item.pop }} %</p>
+                    <p>Pressure</p>
+                    <p class="text-time-block">{{ formatPressure(item.main.pressure) }} mm</p>
+                    <p>Humidity</p>
+                    <p class="text-time-block">{{ item.main.humidity }} %</p>
+                    <p>Wind speed</p>
+                    <p class="text-time-block">{{speedWind(item.wind.speed)}} m/c</p>
                 </div>
             </div>
         </div>

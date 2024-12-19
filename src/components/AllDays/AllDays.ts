@@ -12,9 +12,12 @@ interface Forecast {
 export default defineComponent({
     name: "AllDays",
     methods: {
-        dayjs() {
-            return dayjs
-        }
+        formatDay: (day: string): string => dayjs(day).format("dddd"),
+        formatTime: (timestamp: number): string => dayjs.unix(timestamp).format("HH:mm"),
+        formatPressure: (pressure: number): number => Math.round(pressure * 0.75006),
+        iconUrl: (icon: string): string => `https://openweathermap.org/img/wn/${icon}@2x.png`,
+        speedWind: (wind: number): number => Math.round(wind * 0.75006),
+        formatTemp: (temp: number): number => parseFloat(temp.toFixed(1)),
     },
     props: {
         latitude: {
