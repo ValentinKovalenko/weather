@@ -1,4 +1,5 @@
 .wrap {
+    width: 93%;
     display: flex;
     gap: 5%;
 }

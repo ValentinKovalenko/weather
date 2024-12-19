@@ -1,7 +1,6 @@
 <div class="wrap-all">
     <div v-if="forecastError" class="error">{{ forecastError }}</div>
     <div v-if="forecastData" class="days-container">
-        <!-- Головні блоки днів -->
         <div
                 class="day-block"
                 v-for="(forecast, index) in forecastData"
@@ -45,7 +44,7 @@
                     <p>Humidity</p>
                     <p class="text-time-block">{{ item.main.humidity }} %</p>
                     <p>Wind speed</p>
-                    <p class="text-time-block">{{speedWind(item.wind.speed)}} m/c</p>
+                    <p class="text-time-block">{{ speedWind(item.wind.speed) }} m/c</p>
                 </div>
             </div>
         </div>

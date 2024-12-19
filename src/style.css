@@ -34,7 +34,9 @@
 }
 
 .main {
-  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(15, 14, 14, 0.85);
   width: 85%;
   height: 85%;
