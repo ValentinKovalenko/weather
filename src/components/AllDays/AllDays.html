@@ -34,17 +34,34 @@
                             :src="iconUrl(item.weather[0].icon)"
                             alt="Weather icon"
                     />
-                    <p>Temp: <span class="text-time-block">{{ formatTemp(item.main.temp) }} °C</span></p>
+                    <p>
+                        <span class="text-time-block">
+                            <img class="weather-icon" alt="Weather icon" src="../../assets/thermometer.png">
+                            {{ formatTemp(item.main.temp) }} °C
+                        </span>
+                    </p>
                     <p>Feels like</p>
-                    <p class="text-time-block">{{ formatTemp(item.main.feels_like) }} °C</p>
+                    <p class="text-time-block">
+                        <img class="weather-icon" alt="Weather icon" src="../../assets/thermometer.png">
+                        {{ formatTemp(item.main.feels_like) }} °C
+                    </p>
                     <p>Probability of precipitation</p>
-                    <p class="text-time-block">{{ item.pop }} %</p>
+                    <p class="text-time-block">
+                        <img class="weather-icon" alt="Weather icon" src="../../assets/wet.png">
+                        {{ item.pop }} %
+                    </p>
                     <p>Pressure</p>
                     <p class="text-time-block">{{ formatPressure(item.main.pressure) }} mm</p>
                     <p>Humidity</p>
-                    <p class="text-time-block">{{ item.main.humidity }} %</p>
+                    <p class="text-time-block">
+                        <img class="weather-icon" alt="Weather icon" src="../../assets/humidity.png">
+                        {{ item.main.humidity }} %
+                    </p>
                     <p>Wind speed</p>
-                    <p class="text-time-block">{{ speedWind(item.wind.speed) }} m/c</p>
+                    <p class="text-time-block">
+                        <img class="weather-icon" alt="Weather icon" src="../../assets/windy.png">
+                        {{ speedWind(item.wind.speed) }} m/c
+                    </p>
                 </div>
             </div>
         </div>

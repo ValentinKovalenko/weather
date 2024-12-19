@@ -32,7 +32,7 @@
 .day-details {
     position: absolute;
     width: 98%;
-    top: 20%;
+    top: 18%;
     left: 0;
     display: flex;
     background-color: #fafafa;
@@ -58,5 +58,10 @@
 }
 
 .text-time-block {
-    color: lightgrey;
+    color: #b5bab7;
+}
+
+.weather-icon {
+    width: 17px;
+    height: 17px;
 }
